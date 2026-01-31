@@ -245,6 +245,7 @@ push_swap/
 │   │   ├── check_duplicates.c
 │   │   ├── error.c
 │   │   ├── parse_arguments.c
+│   │   ├── ps_split_spaces.c
 │   │   ├── safe_atoi.c
 │   │   └── validate_number.c
 │   ├── sorting/
