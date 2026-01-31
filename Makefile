@@ -23,12 +23,12 @@ $(SRC_DIR)/parsing/check_duplicates.c \
 $(SRC_DIR)/parsing/safe_atoi.c \
 $(SRC_DIR)/parsing/error.c \
 $(SRC_DIR)/parsing/parse_arguments.c \
-$(SRC_DIR)/parsing/indexing.c \
+$(SRC_DIR)/sorting/indexing.c \
 $(SRC_DIR)/sorting/sort_small.c \
 $(SRC_DIR)/sorting/chunk_sort.c \
-$(SRC_DIR)/utils/free_stack.c \
-$(SRC_DIR)/push_swap.c\
-$(SRC_DIR)/main.c\
+$(SRC_DIR)/stack/free_stack.c \
+$(SRC_DIR)/sorting/dispatcher.c \
+$(SRC_DIR)/main.c \
 
 # Convertimos src/.../x.c -> obj/.../x.o (mantiene subcarpetas)
 OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -42,7 +42,7 @@ CFLAGS      += -MMD -MP
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $@
 
 # Regla de compilación: crea carpeta destino y compila
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
