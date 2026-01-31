@@ -32,10 +32,7 @@ void	sort_3(t_stack *a)
 		ra(a);
 	else if (second > first && second > third)
 		rra(a);
-	first = a->top->index;
-	second = a->top->next->index;
-	if (first > second)
-		sa(a);
+	sort_2(a);
 }
 static int	find_smallest_pos(t_stack *a, int target)
 {

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	sa_np(t_stack *a)
+void	sa_np(t_stack *a)
 {
 	t_node	*first;
 	t_node	*second;
@@ -32,7 +32,7 @@ static void	sa_np(t_stack *a)
 
 	a->top = second;
 }
-static void	sb_np(t_stack *b)
+void	sb_np(t_stack *b)
 {
 	t_node	*first;
 	t_node	*second;
@@ -53,7 +53,7 @@ static void	sb_np(t_stack *b)
 	b->top = second;
 }
 
-static void	ss_np(t_stack *a, t_stack *b)
+void	ss_np(t_stack *a, t_stack *b)
 {
 	sa_np(a);
 	sb_np(b);

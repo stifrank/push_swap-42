@@ -55,6 +55,22 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+/*NO PRINT*/
+void  sa_np(t_stack *a);
+void  sb_np(t_stack *b);
+void  ss_np(t_stack *a, t_stack *b);
+
+void	pa_np(t_stack *a, t_stack *b);
+void	pb_np(t_stack *a, t_stack *b);
+
+void	ra_np(t_stack *a);
+void	rb_np(t_stack *b);
+void	rr_np(t_stack *a, t_stack *b);
+
+void	rra_np(t_stack *a);
+void	rrb_np(t_stack *b);
+void	rrr_np(t_stack *a, t_stack *b);
+
 
 
 /* ------- SORTING ALGORITHMS ------- */

@@ -8,6 +8,30 @@ static int	get_chunk_size(int n)
 		return (35);
 	return (n / 11 + 10);
 }
+static void	push_chunks_to_b(t_stack *a, t_stack *b)
+{
+	int	chunk;
+	int	index;
+
+	chunk = get_chunk_size(a->size);
+	index = 0;
+	while (a->size > 0)
+	{
+		if (a->top->index <= index)
+		{
+			pb(a, b);
+			rb(b);
+			index++;
+		}
+		else if (a->top->index <= index + chunk)
+		{
+			pb(a, b);
+			index++;
+		}
+		else
+			ra(a);
+	}
+}
 
 static int find_pos_of_index(t_stack *s, int target)
 {
@@ -44,30 +68,6 @@ static void	bring_index_to_top_b(t_stack *b, int target)
 		steps = b->size - pos;
 		while (steps--)
 			rrb(b);
-	}
-}
-static void	push_chunks_to_b(t_stack *a, t_stack *b)
-{
-	int	chunk;
-	int	index;
-
-	chunk = get_chunk_size(a->size);
-	index = 0;
-	while (a->size > 0)
-	{
-		if (a->top->index <= index)
-		{
-			pb(a, b);
-			rb(b);
-			index++;
-		}
-		else if (a->top->index <= index + chunk)
-		{
-			pb(a, b);
-			index++;
-		}
-		else
-			ra(a);
 	}
 }
 

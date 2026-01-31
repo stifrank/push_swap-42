@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	rra_np(t_stack *a)
+void	rra_np(t_stack *a)
 {
 	t_node	*node;
 
@@ -22,7 +22,7 @@ static void	rra_np(t_stack *a)
 	stack_add_top(a, node);
 }
 
-static void	rrb_np(t_stack *b)
+void	rrb_np(t_stack *b)
 {
 	t_node	*node;
 
@@ -32,7 +32,7 @@ static void	rrb_np(t_stack *b)
 	stack_add_top(b, node);
 }
 
-static void	rrr_np(t_stack *a, t_stack *b)
+void	rrr_np(t_stack *a, t_stack *b)
 {
 	rra_np(a);
 	rrb_np(b);
