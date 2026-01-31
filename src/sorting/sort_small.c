@@ -17,6 +17,7 @@ void	sort_2(t_stack *a)
 	if (a->top->index > a->top->next->index)
 		sa(a);
 }
+
 void	sort_3(t_stack *a)
 {
 	int	first;
@@ -24,7 +25,7 @@ void	sort_3(t_stack *a)
 	int	third;
 
 	if (!a || a->size != 3)
-		return;
+		return ;
 	first = a->top->index;
 	second = a->top->next->index;
 	third = a->top->next->next->index;
@@ -34,6 +35,7 @@ void	sort_3(t_stack *a)
 		rra(a);
 	sort_2(a);
 }
+
 static int	find_smallest_pos(t_stack *a, int target)
 {
 	t_node	*curr;
@@ -50,6 +52,7 @@ static int	find_smallest_pos(t_stack *a, int target)
 	}
 	return (-1);
 }
+
 static void	bring_min_to_top(t_stack *a, int pos)
 {
 	if (pos <= a->size / 2)
@@ -62,15 +65,15 @@ static void	bring_min_to_top(t_stack *a, int pos)
 
 void	sort_4(t_stack *a, t_stack *b)
 {
-	int pos;
+	int	pos;
 
 	pos = find_smallest_pos(a, 0);
 	bring_min_to_top(a, pos);
 	pb(a, b);
 	sort_3(a);
 	pa(a, b);
-	
 }
+
 void	sort_5(t_stack *a, t_stack *b)
 {
 	int	pos;

@@ -6,7 +6,7 @@
 /*   By: fjaramil <fjaramil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/25 19:25:32 by fjaramil          #+#    #+#             */
-/*   Updated: 2026/01/25 19:25:32 by fjaramil         ###   ########.fr       */
+/*   Updated: 2026/02/01 00:04:18 by fjaramil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,12 @@ static void	assign_index_to_nodes(t_stack *a, int *arr, int size)
 			if (curr->value == arr[i])
 			{
 				curr->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
 		curr = curr->next;
 	}
-	
 }
 
 void	assign_indexes(t_stack *a)

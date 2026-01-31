@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-t_node *stack_pop_top(t_stack *stack)
+t_node	*stack_pop_top(t_stack *stack)
 {
-   t_node	*node;
+	t_node	*node;
 
-   if (!stack || stack->size == 0)
+	if (!stack || stack->size == 0)
 		return (NULL);
 	node = stack->top;
 	stack->top = node->next;
@@ -30,7 +30,7 @@ t_node *stack_pop_top(t_stack *stack)
 	return (node);
 }
 
-t_node *stack_pop_bottom(t_stack *stack)
+t_node	*stack_pop_bottom(t_stack *stack)
 {
 	t_node	*node;
 

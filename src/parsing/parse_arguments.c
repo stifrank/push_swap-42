@@ -15,20 +15,29 @@
 void	parse_arguments(int argc, char **argv, t_stack *a)
 {
 	int		i;
+	int		j;
 	long	num;
 	int		error;
+	char	**tokens;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (!is_valid_number(argv[i]))
+		tokens = ps_split_spaces(argv[i]);
+		if (!tokens || !tokens[0])
 			error_exit();
-		num = safe_atoi(argv[i], &error);
-		if (error)
-			error_exit();
-		if (has_duplicate(a, (int)num))
-			error_exit();
-		stack_add_bottom(a, new_node((int)num));
+		j = 0;
+		while (tokens[j])
+		{
+			if (!is_valid_number(tokens[j]))
+				(ps_free_split(tokens), error_exit());
+			num = safe_atoi(tokens[j], &error);
+			if (error || has_duplicate(a, (int)num))
+				(ps_free_split(tokens), error_exit());
+			stack_add_bottom(a, new_node((int)num));
+			j++;
+		}
+		ps_free_split(tokens);
 		i++;
 	}
 }

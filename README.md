@@ -46,7 +46,10 @@ The Makefile includes the rules required by the subject:
 
 ```bash
 ./push_swap 3 2 1
+./push_swap "3 2 1"
 ```
+The program also supports arguments passed as a single quoted string, as required by the subject.
+
 
 It also works using a variable:
 
@@ -60,13 +63,14 @@ ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' ')
 ./push_swap $ARG
 ```
 
+
 ### Checker (verification during development)
 
 During development, the official checker can be used to verify that the output actually sorts the stack:
 
 ```bash
 ARG="4 67 3 87 23"
-./push_swap $ARG | ./checker_OS $ARG
+./push_swap $ARG | ./checker_linux $ARG
 ```
 
 To count the number of operations:
@@ -278,6 +282,8 @@ The program strictly validates the input:
 - Values within `int` range
 - No duplicate numbers
 - Proper error handling (`Error\n` written to stderr when required)
+- Arguments can be provided either as separate values or as space-separated strings (e.g. `"1 2 3"`), with identical validation rules
+
 
 ---
 

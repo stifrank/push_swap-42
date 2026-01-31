@@ -31,6 +31,7 @@ $(SRC_DIR)/parsing/safe_atoi.c \
 $(SRC_DIR)/parsing/error.c \
 $(SRC_DIR)/parsing/parse_arguments.c \
 $(SRC_DIR)/sorting/indexing.c \
+$(SRC_DIR)/parsing/ps_split_spaces.c \
 
 # -----------------------
 # SOLO push_swap

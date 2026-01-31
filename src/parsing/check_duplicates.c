@@ -20,7 +20,7 @@ int	has_duplicate(t_stack *a, int value)
 	while (curr)
 	{
 		if (curr->value == value)
-			return(1);
+			return (1);
 		curr = curr->next;
 	}
 	return (0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fjaramil <fjaramil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/31 23:57:34 by fjaramil          #+#    #+#             */
+/*   Updated: 2026/01/31 23:57:34 by fjaramil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	get_chunk_size(int n)
@@ -8,6 +20,7 @@ static int	get_chunk_size(int n)
 		return (35);
 	return (n / 11 + 10);
 }
+
 static void	push_chunks_to_b(t_stack *a, t_stack *b)
 {
 	int	chunk;
@@ -33,7 +46,7 @@ static void	push_chunks_to_b(t_stack *a, t_stack *b)
 	}
 }
 
-static int find_pos_of_index(t_stack *s, int target)
+static int	find_pos_of_index(t_stack *s, int target)
 {
 	t_node	*cur;
 	int		pos;
@@ -57,7 +70,7 @@ static void	bring_index_to_top_b(t_stack *b, int target)
 
 	pos = find_pos_of_index(b, target);
 	if (pos == -1)
-		return;
+		return ;
 	if (pos <= b->size / 2)
 	{
 		while (pos-- > 0)
@@ -78,10 +91,8 @@ static void	push_back_to_a(t_stack *a, t_stack *b, int n)
 	target = n - 1;
 	while (target >= 0 && b->size > 0)
 	{
-
 		bring_index_to_top_b(b, target);
 		pa(a, b);
-
 		if (target > 0 && b->size > 0 && b->top->index == target - 1)
 		{
 			pa(a, b);
@@ -91,13 +102,14 @@ static void	push_back_to_a(t_stack *a, t_stack *b, int n)
 			target--;
 	}
 }
+
 void	chunk_sort(t_stack *a, t_stack *b)
 {
 	int	n;
-	
+
 	if (!a || a->size < 2)
-		return;
-	n = a->size;
+		return ;
+	n = a->size ;
 	push_chunks_to_b(a, b);
 	push_back_to_a(a, b, n);
 }

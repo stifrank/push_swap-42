@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_checker.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fjaramil <fjaramil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/31 23:55:37 by fjaramil          #+#    #+#             */
+/*   Updated: 2026/01/31 23:56:29 by fjaramil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	checker_read(t_stack *a, t_stack *b);
@@ -10,30 +22,14 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-
-	/* Inicializa stacks (ajusta si tú tienes init_stack()) */
 	a.top = NULL;
 	a.size = 0;
 	b.top = NULL;
 	b.size = 0;
-
-	/* PARSE: aquí tienes que llamar a tu función real */
-	/* EJEMPLO:
-		parse_arguments(&a, argc, argv);
-	   o:
-		parse_arguments(argc, argv, &a);
-	*/
-	parse_arguments(argc, argv, &a); /* <-- AJUSTA este nombre/firma */
-
-	/* Ejecuta instrucciones leídas de stdin */
+	parse_arguments(argc, argv, &a);
 	checker_read(&a, &b);
-
-	/* Resultado final */
 	checker_print_result(&a, &b);
-
-	/* Free */
 	free_stack(&a);
 	free_stack(&b);
-
 	return (0);
 }

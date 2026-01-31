@@ -17,7 +17,7 @@ void	rra_np(t_stack *a)
 	t_node	*node;
 
 	if (!a || a->size < 2)
-		return;
+		return ;
 	node = stack_pop_bottom(a);
 	stack_add_top(a, node);
 }
@@ -27,7 +27,7 @@ void	rrb_np(t_stack *b)
 	t_node	*node;
 
 	if (!b || b->size < 2)
-		return;
+		return ;
 	node = stack_pop_bottom(b);
 	stack_add_top(b, node);
 }
@@ -37,6 +37,7 @@ void	rrr_np(t_stack *a, t_stack *b)
 	rra_np(a);
 	rrb_np(b);
 }
+
 void	rra(t_stack *a)
 {
 	rra_np(a);

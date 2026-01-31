@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fjaramil <fjaramil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/01 00:04:33 by fjaramil          #+#    #+#             */
+/*   Updated: 2026/02/01 00:04:33 by fjaramil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int get_max_bits(t_stack *a)
+static int	get_max_bits(t_stack *a)
 {
-   int	max;
-   int	bits;
+	int	max;
+	int	bits;
 
 	max = a->size - 1;
 	bits = 0;
@@ -14,20 +26,20 @@ static int get_max_bits(t_stack *a)
 
 void	radix_sort(t_stack *a, t_stack *b)
 {
-	int max_bits;
+	int	max_bits;
 	int	i;
 	int	j;
 	int	size;
 
-	if(!a || a->size < 2)
-		return;
+	if (!a || a->size < 2)
+		return ;
 	max_bits = get_max_bits(a);
 	i = 0;
 	while (i < max_bits)
 	{
 		size = a->size;
 		j = 0;
-		while(j < size)
+		while (j < size)
 		{
 			if (((a->top->index >> i) & 1) == 0)
 				pb(a, b);

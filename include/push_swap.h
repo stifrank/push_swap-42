@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fjaramil <fjaramil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/01 00:21:46 by fjaramil          #+#    #+#             */
+/*   Updated: 2026/02/01 00:21:46 by fjaramil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
@@ -26,6 +38,9 @@ long	safe_atoi(char *str, int *error);
 int		has_duplicate(t_stack *a, int value);
 void	parse_arguments(int argc, char **argv, t_stack *a);
 void	assign_indexes(t_stack *a);
+char	**ps_split_spaces(const char *s);
+void	ps_free_split(char **arr);
+
 
 
 /* ------- STACK FUNCTIONS ------- */
@@ -35,6 +50,7 @@ void	stack_add_top(t_stack *stack, t_node *new);
 t_node	*stack_pop_top(t_stack *stack);
 t_node  *stack_pop_bottom(t_stack *stack);
 void	sort_stack(t_stack *a, t_stack *b);
+void	free_stack(t_stack *s);
 
 
 /* ------- INSTRUCTIONS ------- */
@@ -81,12 +97,6 @@ void	sort_5(t_stack *a, t_stack *b);
 //void	radix_sort(t_stack *a, t_stack *b);
 void	chunk_sort(t_stack *a, t_stack *b);
 
-
-
-
-
-/* ------- UTILS ------- */
-void	free_stack(t_stack *s);
 
 /* ------- ERROR ------- */
 void	error_exit(void);

@@ -17,7 +17,7 @@ void	pb_np(t_stack *a, t_stack *b)
 	t_node	*node;
 
 	if (!a || a->size == 0)
-		return;
+		return ;
 	node = stack_pop_top(a);
 	stack_add_top(b, node);
 }
@@ -27,10 +27,11 @@ void	pa_np(t_stack *a, t_stack *b)
 	t_node	*node;
 
 	if (!b || b->size == 0)
-		return;
+		return ;
 	node = stack_pop_top(b);
 	stack_add_top(a, node);
 }
+
 void	pa(t_stack *a, t_stack *b)
 {
 	pa_np(a, b);
