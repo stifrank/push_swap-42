@@ -53,16 +53,9 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME)
 
 re: fclean all
-
-# ---- TEST (solo desarrollo) ----
-# Reutiliza todo menos main.c y añade tu archivo de tests
-# ---- TEST (solo desarrollo) ----
-test:
-	cc tests/test_small_sorts.c $(SRCS) -I include -o test
-
 
 .PHONY: all clean fclean re test test_bin
 
