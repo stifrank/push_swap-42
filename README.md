@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by fjaramil.*
+_This project has been created as part of the 42 curriculum by fjaramil._
 
 # push_swap
 
@@ -11,12 +11,14 @@ Project from the **42 Common Core** whose goal is to sort a stack of integers us
 `push_swap` receives a list of integers as arguments and must output to **stdout** a sequence of instructions (from an allowed set) that sorts stack `A` in ascending order, using stack `B` as auxiliary storage.
 
 The main challenge is not only to sort correctly, but to do so **efficiently**, while strictly respecting the constraints defined in the subject:
+
 - Norminette compliance
 - Proper error handling
 - No crashes (segfaults, double frees, etc.)
 - No memory leaks
 
 This project is an important learning step to better understand:
+
 - Stack-based data structures
 - Algorithm design and optimization
 - Complexity trade-offs
@@ -33,6 +35,7 @@ make
 ```
 
 The Makefile includes the rules required by the subject:
+
 - `all`
 - `$(NAME)`
 - `clean`
@@ -51,6 +54,7 @@ It also works using a variable:
 ARG="4 67 3 87 23"
 ./push_swap $ARG
 ```
+
 ```bash
 ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' ')
 ./push_swap $ARG
@@ -114,6 +118,7 @@ push_swap/
 ### 1) Validation & parsing
 
 The program strictly validates the input:
+
 - Only integers (valid `+` / `-` signs allowed)
 - Values within `int` range
 - No duplicate numbers
@@ -126,6 +131,7 @@ The program strictly validates the input:
 Before sorting, all values are converted into indices ranging from `0` to `n - 1`, based on their relative order.
 
 This approach:
+
 - Simplifies comparisons
 - Makes the algorithm independent of actual values
 - Enables the use of ranges and windows
@@ -192,25 +198,29 @@ This strategy avoids deadlocks and keeps stack `B` partially ordered.
 - Execute `pa`
 
 Additional optimization:
-- If after `pa` the next expected index (`target - 1`) is on top of `B`, perform `pa` followed by `sa` to place both elements correctly with fewer moves.
+
+- If after `pa` the next expected index (`target - 1`) is on top of `B`, a second `pa` is performed immediately to place both elements in order without extra rotations.
 
 ---
 
 ## Benchmarks (subject reference)
 
 Performance targets used for evaluation and maximum validation:
+
 - 100 numbers: **< 700** operations
 - 500 numbers: **≤ 5500** operations
 
-Typical results achieved with this implementation:
-- 100 elements: **< 700**
-- 500 elements: **~4000–4500**
+Typical results achieved with my implementation:
+
+- 100 elements: **~500-600**
+- 500 elements: **~4000–5000**
 
 ---
 
 ## Testing
 
 The program has been tested with:
+
 - Negative numbers
 - Duplicate values (expected error)
 - `INT_MIN` and `INT_MAX` limits
@@ -222,6 +232,7 @@ The program has been tested with:
 Artificial Intelligence has been used **only as a conceptual support tool**, not as an automatic code generator.
 
 It was mainly used to:
+
 - Better understand and justify the **chunk sort** approach (windows, `index` pointer, rotations)
 - Review algorithmic reasoning in both A → B and B → A phases
 - Detect potential infinite loops or logical edge cases
