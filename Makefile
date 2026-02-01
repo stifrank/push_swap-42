@@ -22,9 +22,12 @@ $(SRC_DIR)/stack/stack_add.c \
 $(SRC_DIR)/stack/stack_pop.c \
 $(SRC_DIR)/stack/free_stack.c \
 $(SRC_DIR)/instructions/instructions_swap.c \
+$(SRC_DIR)/instructions/instructions_swap_both.c \
 $(SRC_DIR)/instructions/instructions_push.c \
 $(SRC_DIR)/instructions/instructions_rotate.c \
+$(SRC_DIR)/instructions/instructions_rotate_both.c \
 $(SRC_DIR)/instructions/instructions_reverse_rotate.c \
+$(SRC_DIR)/instructions/instructions_reverse_rotate_both.c \
 $(SRC_DIR)/parsing/validate_number.c \
 $(SRC_DIR)/parsing/check_duplicates.c \
 $(SRC_DIR)/parsing/safe_atoi.c \
@@ -32,6 +35,7 @@ $(SRC_DIR)/parsing/error.c \
 $(SRC_DIR)/parsing/parse_arguments.c \
 $(SRC_DIR)/sorting/indexing.c \
 $(SRC_DIR)/parsing/ps_split_spaces.c \
+$(SRC_DIR)/parsing/ps_split_spaces_utils.c \
 
 # -----------------------
 # SOLO push_swap
@@ -39,7 +43,9 @@ $(SRC_DIR)/parsing/ps_split_spaces.c \
 PS_SRCS := \
 $(COMMON_SRCS) \
 $(SRC_DIR)/sorting/sort_small.c \
+$(SRC_DIR)/sorting/sort_small_utils.c \
 $(SRC_DIR)/sorting/chunk_sort.c \
+$(SRC_DIR)/sorting/chunk_sort_utils.c \
 $(SRC_DIR)/sorting/dispatcher.c \
 $(SRC_DIR)/main.c \
 

@@ -239,18 +239,24 @@ push_swap/
 │   ├── instructions/
 │   │   ├── instructions_push.c
 │   │   ├── instructions_reverse_rotate.c
+│   │   ├── instructions_reverse_rotate_both.c
 │   │   ├── instructions_rotate.c
+│   │   ├── instructions_rotate_both.c
 │   │   └── instructions_swap.c
+│   │   └── instructions_swap_both.c
 │   ├── parsing/
 │   │   ├── check_duplicates.c
 │   │   ├── error.c
 │   │   ├── parse_arguments.c
 │   │   ├── ps_split_spaces.c
+│   │   ├── ps_split_spaces_utils.c
 │   │   ├── safe_atoi.c
 │   │   └── validate_number.c
 │   ├── sorting/
 │   │   ├── sort_small.c
+│   │   ├── sort_small_utils.c
 │   │   ├── chunk_sort.c
+│   │   ├── chunk_sort_utils.c
 │   │   ├── indexing.c
 │   │   └── dispatcher.c
 │   └── stack/

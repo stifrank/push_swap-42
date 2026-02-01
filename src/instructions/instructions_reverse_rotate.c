@@ -32,12 +32,6 @@ void	rrb_np(t_stack *b)
 	stack_add_top(b, node);
 }
 
-void	rrr_np(t_stack *a, t_stack *b)
-{
-	rra_np(a);
-	rrb_np(b);
-}
-
 void	rra(t_stack *a)
 {
 	rra_np(a);
@@ -48,10 +42,4 @@ void	rrb(t_stack *b)
 {
 	rrb_np(b);
 	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	rrr_np(a, b);
-	write(1, "rrr\n", 4);
 }

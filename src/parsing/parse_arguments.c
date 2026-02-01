@@ -12,12 +12,23 @@
 
 #include "push_swap.h"
 
+static void parse_token(t_stack * a, char *token, char **tokens)
+{
+	long	num;
+	int	error;
+
+	if (!is_valid_number(token))
+		(ps_free_split(tokens), error_exit());
+	num = safe_atoi(token, &error);
+	if (error || has_duplicate(a, (int)num))
+		(ps_free_split(tokens), error_exit());
+	stack_add_bottom(a, new_node((int)num));
+}
+
 void	parse_arguments(int argc, char **argv, t_stack *a)
 {
 	int		i;
 	int		j;
-	long	num;
-	int		error;
 	char	**tokens;
 
 	i = 1;
@@ -29,12 +40,7 @@ void	parse_arguments(int argc, char **argv, t_stack *a)
 		j = 0;
 		while (tokens[j])
 		{
-			if (!is_valid_number(tokens[j]))
-				(ps_free_split(tokens), error_exit());
-			num = safe_atoi(tokens[j], &error);
-			if (error || has_duplicate(a, (int)num))
-				(ps_free_split(tokens), error_exit());
-			stack_add_bottom(a, new_node((int)num));
+			parse_token(a, tokens[j], tokens);
 			j++;
 		}
 		ps_free_split(tokens);

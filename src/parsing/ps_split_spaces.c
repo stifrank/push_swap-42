@@ -11,36 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include "push_swap.h"
 #include <stdlib.h>
 
-static int	is_space(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
-
-static int	count_words(const char *s)
-{
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	while (s[i])
-	{
-		while (s[i] && is_space(s[i]))
-			i++;
-		if (s[i])
-		{
-			count++;
-			while (s[i] && !is_space(s[i]))
-				i++;
-		}
-	}
-	return (count);
-}
+int	is_space(char c);
+int	count_words(const char *s);
 
 static char	*dup_word(const char *s, int start, int len)
 {
@@ -70,12 +44,30 @@ static void	free_partial(char **arr, int filled)
 	free(arr);
 }
 
+static int	add_word(char **arr, const char *s, int *i, int *k)
+{
+	int	start;
+
+	while (s[*i] && is_space(s[*i]))
+		(*i)++;
+	if (!s[*i])
+		return (0);
+	start = *i;
+	while (s[*i] && !is_space(s[*i]))
+		(*i)++;
+	arr[*k] = dup_word(s, start, *i - start);
+	if (!arr[*k])
+		return (free_partial(arr, *k), -1);
+	(*k)++;
+	return (1);
+}
+
 char	**ps_split_spaces(const char *s)
 {
 	char	**arr;
 	int		i;
 	int		k;
-	int		start;
+	int		status;
 
 	if (!s)
 		return (NULL);
@@ -84,32 +76,11 @@ char	**ps_split_spaces(const char *s)
 		return (NULL);
 	i = 0;
 	k = 0;
-	while (s[i])
-	{
-		while (s[i] && is_space(s[i]))
-			i++;
-		if (!s[i])
-			break ;
-		start = i;
-		while (s[i] && !is_space(s[i]))
-			i++;
-		arr[k] = dup_word(s, start, i - start);
-		if (!arr[k])
-			return (free_partial(arr, k), NULL);
-		k++;
-	}
+	status = 1;
+	while (status > 0)
+		status = add_word(arr, s, &i, &k);
+	if (status < 0)
+		return (NULL);
 	arr[k] = NULL;
 	return (arr);
-}
-
-void	ps_free_split(char **arr)
-{
-	int	i;
-
-	if (!arr)
-		return ;
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
-	free(arr);
 }
